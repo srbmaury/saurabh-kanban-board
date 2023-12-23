@@ -1,6 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const UserIcon = ({ name, online }) => {
+
+    const [userInitials, setUserInitials] = useState("");
+    const [userColor, setUserColor] = useState("");
+    
     const stringToColor = (str) => {
         let hash = 0;
         for (let i = 0; i < str.length; i++) {
@@ -10,16 +14,20 @@ const UserIcon = ({ name, online }) => {
         return `#${color}`;
     };
 
-    const userInitials = name
-        .split(' ')
-        .map((word) => word.charAt(0).toUpperCase())
-        .join('');
-
-    const userColor = stringToColor(name);
     useEffect(() => {
-      console.log(name);
-    }, []);
-    
+        if (name !== undefined) {
+            const initials = name
+                .split(' ')
+                .map((word) => word.charAt(0).toUpperCase())
+                .join('');
+
+            const color = stringToColor(name);
+
+            setUserInitials(initials);
+            setUserColor(color);
+        }
+    }, [name]);
+
     return (
         <div className="w-6 h-6 rounded-full cursor-pointer flex items-center justify-center relative" style={{
             backgroundColor: userColor,

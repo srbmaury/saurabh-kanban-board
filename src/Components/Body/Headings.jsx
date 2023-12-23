@@ -4,6 +4,7 @@ import Status from './Status';
 import Priority from './Priority';
 import UserIcon from './UserIcon';
 import RightIcons from './RightIcons';
+import Ticket from './ticket';
 
 const Headings = () => {
     const [data, setData] = useState(null);
@@ -33,32 +34,88 @@ const Headings = () => {
         <div className="w-full">
             <ul className={`flex flex-wrap justify-around gap-3 ${grouping === 'user' ? 'sm:flex-col lg:flex-row' : ''}`}>
                 {grouping === 'status' && ["Backlog", "Todo", "In progress", "Done", "Cancelled"].map(status => (
-                    <li key={status} className={`flex justify-between w-72 ${darkMode ? 'text-white' : 'text-black'}`}>
-                        <div className='flex gap-2'>
-                            <Status type={status} /> {status} 
-                        </div>
-                        <RightIcons />
-                    </li>
-                ))}
-
-                {grouping === 'priority' && ["No Priority", "Low", "Medium", "High", "Urgent"].map(priority => (
-                    <li key={priority} className={`flex justify-between w-72 ${darkMode ? 'text-white' : 'text-black'}`}>
-                        <div className='flex gap-2'>
-                            <span className='mt-1'>
-                                <Priority type={priority} /> 
+                    <li key={status} className={`my-4 w-72 ${darkMode ? 'text-white' : 'text-black'}`}>
+                        <div className='flex justify-between'>
+                            <span className='flex gap-2'>
+                                <Status type={status} />
+                                <span style={{ marginTop: "-5px" }}>{status}</span>
                             </span>
-                            {priority} 
+                            <RightIcons />
                         </div>
-                        <RightIcons />
+                        {/* Nested mapping for tickets under each status */}
+                        <ul>
+                            {data.tickets
+                                .filter(ticket => ticket.status === status)
+                                .map(ticket => {
+                                    const user = data.users.find((user) => user.id === ticket.userId);
+                                    return (
+                                        <li key={ticket.id}>
+                                            <Ticket
+                                                id={ticket.id}
+                                                title={ticket.title}
+                                                name={user.name}
+                                                online={user.online}
+                                            />
+                                        </li>
+                                    );
+                                })
+                            }
+                        </ul>
                     </li>
                 ))}
 
                 {grouping === 'user' && data.users.map(user => (
-                    <li key={user.id} className={`flex justify-between w-72 ${darkMode ? 'text-white' : 'text-black'}`}>
-                        <div className='flex gap-2'>
-                            <UserIcon name={user.name} online={user.available} /> {user.name} 
+                    <li key={user.id} className={`my-4 w-72 ${darkMode ? 'text-white' : 'text-black'}`}>
+                        <div className='flex justify-between'>
+                            <div className='flex gap-2'>
+                                <UserIcon name={user.name} online={user.available} /> {user.name}
+                            </div>
+                            <RightIcons />
                         </div>
-                        <RightIcons />
+                        {/* Nested mapping for tickets under each user */}
+                        <ul>
+                            {data.tickets
+                                .filter(ticket => ticket.userId === user.id)
+                                .map(ticket => (
+                                    <li key={ticket.id}>
+                                        <Ticket
+                                            id={ticket.id}
+                                            title={ticket.title}
+                                        />
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                    </li>
+                ))}
+
+                {grouping === 'priority' && ["No Priority", "Low", "Medium", "High", "Urgent"].map((priority, index) => (
+                    <li key={priority} className={`my-4 w-72 ${darkMode ? 'text-white' : 'text-black'}`}>
+                        <div className='flex justify-between'>
+                            <div className='flex gap-2'>
+                                <Priority type={priority} /> {priority}
+                            </div>
+                            <RightIcons />
+                        </div>
+                        {/* Nested mapping for tickets under each priority */}
+                        <ul>
+                            {data.tickets
+                                .filter(ticket => ticket.priority === index)
+                                .map(ticket => {
+                                    const user = data.users.find((user) => user.id === ticket.userId);
+                                    return (
+                                        <li key={ticket.id}>
+                                            <Ticket
+                                                id={ticket.id}
+                                                title={ticket.title}
+                                                name={user.name}
+                                                online={user.online}
+                                            />
+                                        </li>
+                                    );
+                                })
+                            }
+                        </ul>
                     </li>
                 ))}
             </ul>
