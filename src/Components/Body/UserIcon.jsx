@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const UserIcon = ({ name, online }) => {
+const UserIcon = ({ name, available }) => {
 
     const [userInitials, setUserInitials] = useState("");
     const [userColor, setUserColor] = useState("");
@@ -38,8 +38,8 @@ const UserIcon = ({ name, online }) => {
         }}>
             {userInitials}
             <div
-                className={`absolute left-3.5 top-3.5 w-3 h-3 ${online ? 'bg-green-400' : 'bg-gray-400'} rounded-full border-2 border-white`}
-                title="Online"
+                className={`absolute left-3.5 top-3.5 w-3 h-3 ${available ? 'bg-green-400' : 'bg-gray-400'} rounded-full border-2 border-white`}
+                title="available"
             ></div>
         </div>
     );

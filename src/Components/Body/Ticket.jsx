@@ -4,25 +4,25 @@ import Priority from './Priority';
 import UserIcon from './UserIcon.jsx';
 import { useAppContext } from '../../AppContext.jsx';
 
-const Ticket = ({ id, title, name, online }) => {
+const Ticket = ({ id, title, priority, name, available }) => {
     const { grouping, darkMode } = useAppContext();
 
     return (
         <div className={`p-3 rounded-md shadow-md border my-2 w-72 relative ${darkMode ? 'border-gray-600 bg-gray-800 text-white' : 'border-gray-200 bg-white text-black'}`}>
             <div className={`flex items-center justify-between mb-2 overflow-visible ${darkMode ? 'text-white' : 'text-gray-400'}`}>
                 <h3 className="text-md font-semibold">{id}</h3>
-                {grouping !== "user" && <UserIcon name={name} online={online} />}
+                {grouping !== "user" && <UserIcon name={name} available={available} />}
             </div>
 
             <div className="flex items-center mb-2" style={{ alignItems: 'baseline' }}>
                 {grouping !== "status" && <Status type="In progress"/>}
-                <p className={`font-semibold ml-2 ${darkMode ? 'text-white' : 'text-gray-400'}`}>{title}</p>
+                <p className={`font-semibold ml-2 ${darkMode ? 'text-white' : 'text-black'}`}>{title}</p>
             </div>
 
             <div className={`bottom-line max-w-md inline-block ${darkMode ? 'border-gray-700' : 'border-gray-300'}`}>
                 <div className="flex tag-wrapper inline-block">
                     {grouping !== "priority" && <div className={`mr-2 border ${darkMode ? 'border-gray-700' : 'border-gray-300'} rounded p-1`}>
-                        <Priority type="Low" />
+                        <Priority type={priority} />
                     </div>}
                     <div className={`tag flex border ${darkMode ? 'border-gray-700' : 'border-gray-300'} rounded-md px-1 text-sm ${darkMode ? 'text-white' : 'text-gray-500'}`}>
                         <div className="pt-1 pr-1">
