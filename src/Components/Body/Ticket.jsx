@@ -21,7 +21,9 @@ const Ticket = ({ title, description, name, online }) => {
 
             <div className={`bottom-line max-w-md inline-block ${darkMode ? 'border-gray-700' : 'border-gray-300'}`}>
                 <div className="flex tag-wrapper inline-block">
+                    <div className={`mr-2 border ${darkMode ? 'border-gray-700' : 'border-gray-300'} rounded p-1`}>
                     <Priority type="Low" />
+                    </div>
                     <div className={`tag flex border ${darkMode ? 'border-gray-700' : 'border-gray-300'} rounded-md px-1 text-sm ${darkMode ? 'text-white' : 'text-gray-500'}`}>
                         <div className="pt-1 pr-1">
                             <svg

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const UserIcon = ({ name, online }) => {
     const stringToColor = (str) => {
@@ -16,7 +16,10 @@ const UserIcon = ({ name, online }) => {
         .join('');
 
     const userColor = stringToColor(name);
-
+    useEffect(() => {
+      console.log(name);
+    }, []);
+    
     return (
         <div className="w-6 h-6 rounded-full cursor-pointer flex items-center justify-center relative" style={{
             backgroundColor: userColor,
