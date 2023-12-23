@@ -32,7 +32,6 @@ const Populate = () => {
         if (!data) return;
 
         setSortedTickets((prevTickets) => {
-            console.log(ordering);
             const tickets = [...data.tickets];
             if (ordering === 'priority') {
                 tickets.sort((a, b) => b.priority - a.priority);
@@ -62,7 +61,7 @@ const Populate = () => {
 
     return (
         <div className="w-full">
-            <ul className={`flex flex-wrap justify-around gap-3 ${grouping === 'user' ? 'sm:flex-col lg:flex-row' : ''}`}>
+            <ul className={`flex flex-wrap gap-3 ${grouping === 'user' ? 'sm:flex-col lg:flex-row' : ''}`}>
                 {/* Grouping */}
                 <AccToStatus sortedTickets={sortedTickets} data={data} grouping={grouping} darkMode={darkMode} />
                 <AccToUser sortedTickets={sortedTickets} data={data} grouping={grouping} darkMode={darkMode} />

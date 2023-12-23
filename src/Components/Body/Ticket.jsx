@@ -15,7 +15,7 @@ const Ticket = ({ id, title, tag, priority, name, available }) => {
                 shadow-md 
                 border 
                 my-2 
-                w-72 
+                sm: w-96 md:w-72
                 relative 
                 ${
                     darkMode
@@ -97,8 +97,8 @@ const Ticket = ({ id, title, tag, priority, name, available }) => {
                                 <path d="M232,128A104,104,0,1,1,128,24,104.13,104.13,0,0,1,232,128Z"></path>
                             </svg>
                         </div>
-                        {tag.map((t) => (
-                            <span style={{ marginTop: 0 }}>{t}</span>
+                        {tag.map((t, index) => (
+                            <span key={index} style={{ marginTop: 0 }}>{t}</span>
                         ))}
                     </div>
                 </div>

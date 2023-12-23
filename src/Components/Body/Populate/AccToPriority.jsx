@@ -11,7 +11,7 @@ const AccToPriority = ({ sortedTickets, data, grouping, darkMode }) => {
                 const priorityTickets = sortedTickets.filter(ticket => ticket.priority === index);
 
                 return (
-                    <li key={priority} className={`my-4 w-72 ${darkMode ? 'text-white' : 'text-black'}`}>
+                    <li key={priority} className={`my-4 sm: w-96 md:w-72 ${darkMode ? 'text-white' : 'text-black'}`}>
                         <div className='flex justify-between'>
                             <div className='flex gap-2'>
                                 <Priority type={index} /> {priority}

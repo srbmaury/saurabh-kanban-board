@@ -11,7 +11,7 @@ const AccToUser = ({ sortedTickets, data, grouping, darkMode }) => {
                 const userTickets = sortedTickets.filter(ticket => ticket.userId === user.id);
 
                 return (
-                    <li key={user.id} className={`my-4 w-72 ${darkMode ? 'text-white' : 'text-black'}`}>
+                    <li key={user.id} className={`my-4 sm: w-96 md:w-72 ${darkMode ? 'text-white' : 'text-black'}`}>
                         <div className='flex justify-between'>
                             <div className='flex gap-2'>
                                 <UserIcon name={user.name} online={user.available} /> {user.name}

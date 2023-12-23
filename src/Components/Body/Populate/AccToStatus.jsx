@@ -11,7 +11,7 @@ const AccToStatus = ({ sortedTickets, data, grouping, darkMode }) => {
                 const statusTickets = sortedTickets.filter(ticket => ticket.status === status);
 
                 return (
-                    <li key={status} className={`my-4 w-72 ${darkMode ? 'text-white' : 'text-black'}`}>
+                    <li key={status} className={`my-4 sm: w-96 md:w-72 ${darkMode ? 'text-white' : 'text-black'}`}>
                         <div className='flex justify-between'>
                             <span className='flex gap-2'>
                             <span style={{ marginTop: "5px" }}><Status type={status} /></span>
