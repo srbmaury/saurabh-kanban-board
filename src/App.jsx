@@ -1,5 +1,6 @@
 import Navbar from "./Components/Navbar/Navbar";
 import "./App.css";
+import Board from "./Components/Body/Board";
 import { useAppContext } from "./AppContext";
 import React, { useEffect } from 'react';
 
@@ -16,6 +17,7 @@ export default function App() {
     return (
         <div>
             <Navbar />
+            <Board />
         </div>
     );
 }
