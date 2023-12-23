@@ -8,7 +8,6 @@ const Priority = ({ type }) => {
         stroke: 'currentColor',
         color: `${darkMode ? 'white' : 'gray'}`,
         className: 'icon',
-        className: 'icon',
         height: '1em',
         width: '1em',
         xmlns: 'http://www.w3.org/2000/svg',

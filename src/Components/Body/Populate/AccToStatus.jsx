@@ -1,24 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Status from '../Status';
 import RightIcons from '../RightIcons';
 import Ticket from '../ticket';
-import { useAppContext } from '../../../AppContext';
 
-const AccToStatus = ({ data, grouping, darkMode }) => {
-    const { ordering } = useAppContext();
-    const [sortedTickets, setSortedTickets] = useState([]);
-
-    useEffect(() => {
-        const tickets = data.tickets.sort((a, b) => {
-            if (ordering === 'priority') {
-                return b.priority - a.priority;
-            }
-            return a.title.localeCompare(b.title);
-        });
-        setSortedTickets(tickets);
-        console.log(sortedTickets);
-    }, [ordering]);
-
+const AccToStatus = ({ sortedTickets, data, grouping, darkMode }) => {
     return (
         <>
             {grouping === 'status' && ["Backlog", "Todo", "In progress", "Done", "Cancelled"].map(status => {
@@ -45,6 +30,7 @@ const AccToStatus = ({ data, grouping, darkMode }) => {
                                             id={ticket.id}
                                             title={ticket.title}
                                             priority={ticket.priority}
+                                            tag={ticket.tag}
                                             name={user.name}
                                             available={user.available}
                                         />

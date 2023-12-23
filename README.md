@@ -1,8 +1,51 @@
-# React + Vite
+# Saurabh's Kanban Board
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This project is a Kanban board clone built using `Vite + React, Tailwind, and ContextAPI`. It provides a simple and intuitive interface for managing tasks across different boards, prioritizing tasks, and tracking their status.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Directory Structure
+
+<pre>
+
+└── saurabh-kanban-board/
+    ├── .eslintrc.cjs
+    ├── .gitignore
+    ├── index.html
+    ├── package-lock.json
+    ├── package.json
+    ├── postcss.config.js
+    ├── public/
+    │   └── vite.svg
+    ├── README.md
+    ├── src/
+    │   ├── App.css
+    │   ├── App.jsx
+    │   ├── AppContext.jsx
+    │   ├── assets/
+    │   │   └── react.svg
+    │   ├── Components/
+    │   │   ├── Body/
+    │   │   │   ├── Board.jsx
+    │   │   │   ├── Populate/
+    │   │   │   │   ├── AccToPriority.jsx
+    │   │   │   │   ├── AccToStatus.jsx
+    │   │   │   │   ├── AccToUser.jsx
+    │   │   │   │   └── Populate.jsx
+    │   │   │   ├── Priority.jsx
+    │   │   │   ├── RightIcons.jsx
+    │   │   │   ├── Status.jsx
+    │   │   │   ├── Ticket.jsx
+    │   │   │   └── UserIcon.jsx
+    │   │   └── Navbar/
+    │   │       ├── Display.jsx
+    │   │       ├── DropDown.jsx
+    │   │       ├── Navbar.jsx
+    │   │       ├── SelectButton.jsx
+    │   │       └── SelectGroup.jsx
+    │   ├── index.css
+    │   └── main.jsx
+    ├── tailwind.config.js
+    └── vite.config.js
+    
+</pre>

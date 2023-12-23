@@ -1,23 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import UserIcon from '../UserIcon';
 import RightIcons from '../RightIcons';
 import Ticket from '../ticket';
-import { useAppContext } from '../../../AppContext';
 
-const AccToUser = ({ data, grouping, darkMode }) => {
-    const { ordering } = useAppContext();
-    const [sortedTickets, setSortedTickets] = useState([]);
-
-    useEffect(() => {
-        const tickets = data.tickets.sort((a, b) => {
-            if (ordering === 'priority') {
-                return a.priority - b.priority;
-            }
-            return a.title.localeCompare(b.title);
-        });
-        setSortedTickets(tickets);
-    }, [ordering]);
-
+const AccToUser = ({ sortedTickets, data, grouping, darkMode }) => {
     return (
         <>
             {grouping === 'user' && data.users.map(user => {
@@ -40,6 +26,7 @@ const AccToUser = ({ data, grouping, darkMode }) => {
                                     <Ticket
                                         id={ticket.id}
                                         title={ticket.title}
+                                        tag={ticket.tag}
                                         priority={ticket.priority}
                                     />
                                 </li>

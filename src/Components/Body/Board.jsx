@@ -6,7 +6,8 @@ const Board = () => {
     const { darkMode } = useAppContext();
 
     return (
-        <div style={{ backgroundColor: darkMode ? "#121212" : "rgba(244,245,248,255)", minHeight: "92.5vh", overflowY: "auto"}} className='p-3'>
+        <div style={{ backgroundColor: darkMode ? "#121212" : "rgba(244,245,248,255)", minHeight: "92.25vh", overflowY: "auto"}} className='p-3'>
+            {/* Populate data using API */}
             <Populate />
         </div>
     );

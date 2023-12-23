@@ -8,7 +8,7 @@ const Display = () => {
     return (
         <div className="relative inline-block text-left">
             <SelectButton isDropdownOpen={isDropdownOpen} setDropdownOpen={setDropdownOpen} />
-            <DropDown isDropdownOpen={isDropdownOpen} setDropdownOpen={setDropdownOpen}/>
+            <DropDown isDropdownOpen={isDropdownOpen} />
         </div>
     );
 };
