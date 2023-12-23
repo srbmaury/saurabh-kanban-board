@@ -24,7 +24,6 @@ const UserIcon = ({ name, online }) => {
             color: 'white',
             fontSize: '0.5rem',
             fontWeight: 'bold',
-            overflow: 'visible'
         }}>
             {userInitials}
             <div

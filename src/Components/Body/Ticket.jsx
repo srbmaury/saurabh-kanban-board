@@ -2,24 +2,27 @@ import React from 'react';
 import Status from './Status';
 import Priority from './Priority';
 import UserIcon from './UserIcon.jsx';
+import { useAppContext } from '../../AppContext.jsx';
 
 const Ticket = ({ title, description, name, online }) => {
+    const { darkMode } = useAppContext();
+
     return (
-        <div className="bg-white p-5 rounded-md shadow-md m-4 w-72 relative">
-            <div className="flex items-center justify-between mb-2 overflow-visible">
-                <h3 className="text-md font-semibold text-gray-400">{title}</h3>
+        <div className={`p-5 rounded-md shadow-md border m-4 w-72 relative ${darkMode ? 'border-gray-600 bg-gray-800 text-white' : 'border-gray-200 bg-white text-black'}`}>
+            <div className={`flex items-center justify-between mb-2 overflow-visible ${darkMode ? 'text-white' : 'text-gray-400'}`}>
+                <h3 className="text-md font-semibold">{title}</h3>
                 <UserIcon name={name} online={online} />
             </div>
 
             <div className="flex items-center mb-2">
                 <Status type="In progress" />
-                <p className="font-semibold ml-2">{description}</p>
+                <p className={`font-semibold ml-2 ${darkMode ? 'text-white' : 'text-gray-400'}`}>{description}</p>
             </div>
 
-            <div className="bottom-line max-w-md inline-block">
+            <div className={`bottom-line max-w-md inline-block ${darkMode ? 'border-gray-700' : 'border-gray-300'}`}>
                 <div className="flex tag-wrapper inline-block">
                     <Priority type="Low" />
-                    <div className="tag flex border border-gray-300 rounded-md px-1 text-sm text-gray-500">
+                    <div className={`tag flex border ${darkMode ? 'border-gray-700' : 'border-gray-300'} rounded-md px-1 text-sm ${darkMode ? 'text-white' : 'text-gray-500'}`}>
                         <div className="pt-1 pr-1">
                             <svg
                                 stroke="currentColor"

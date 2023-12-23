@@ -10,7 +10,7 @@ const DropDown = ({ isDropdownOpen }) => {
             {/* Dropdown panel, show/hide based on dropdown state */}
             {isDropdownOpen && (
                 <section
-                    className={`absolute flex-col mt-3 px-5 py-3 rounded-md overflow-hidden transition-max-height duration-300 ease-in-out border border-gray-200 shadow-lg rounded-lg  ${darkMode ? 'border-gray-600 bg-gray-800 text-white' : 'border-gray-200 bg-white text-black'}`}
+                    className={`absolute flex-col mt-3 px-5 py-3 z-50 rounded-md transition-max-height duration-300 ease-in-out border border-gray-200 shadow-lg rounded-lg  ${darkMode ? 'border-gray-600 bg-gray-800 text-white' : 'border-gray-200 bg-white text-black'}`}
                     role="menu"
                     aria-orientation="vertical"
                     aria-labelledby="options-menu"

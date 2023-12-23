@@ -1,14 +1,17 @@
 import React from 'react';
+import { useAppContext } from '../../AppContext';
 
 const Priority = ({ type }) => {
+    const { darkMode } = useAppContext();
+
     const commonStyle = {
         color: 'gray',
-        strokeWidth: "2",
+        strokeWidth: '2',
         stroke: 'currentColor',
         fill: 'none',
         viewBox: '0 0 24 24',
-        strokeLinecap: "round",
-        strokeLinejoin: "round",
+        strokeLinecap: 'round',
+        strokeLinejoin: 'round',
         className: 'icon',
         height: '1em',
         width: '1em',
@@ -16,29 +19,29 @@ const Priority = ({ type }) => {
     };
 
     return (
-        <div className='mr-2 border border-gray-200 rounded p-1'>
+        <div className={`mr-2 border ${darkMode ? 'border-gray-700' : 'border-gray-300'} rounded p-1`}>
             {/* No priority */}
-            {type === "No Priority" && <svg {...commonStyle}>
+            {type === 'No Priority' && <svg {...commonStyle}>
                 <path d="M112 476h160v72H112zm320 0h160v72H432zm320 0h160v72H752z"></path>
             </svg>}
 
             {/* Low */}
-            {type === "Low" && <svg {...commonStyle}>
+            {type === 'Low' && <svg {...commonStyle}>
                 <path d="M2 20h.01"></path><path d="M7 20v-4"></path>
             </svg>}
 
             {/* Medium */}
-            {type === "Medium" && <svg {...commonStyle}>
+            {type === 'Medium' && <svg {...commonStyle}>
                 <path d="M2 20h.01"></path><path d="M7 20v-4"></path><path d="M12 20v-8"></path>
             </svg>}
 
             {/* High */}
-            {type === "High" && <svg {...commonStyle}>
+            {type === 'High' && <svg {...commonStyle}>
                 <path d="M2 20h.01"></path><path d="M7 20v-4"></path><path d="M12 20v-8"></path><path d="M17 20V8"></path>
             </svg>}
 
             {/* Urgent */}
-            {type === "Urgent" && <svg {...commonStyle} style={{ color: 'rgb(245, 138, 66)' }}>
+            {type === 'Urgent' && <svg {...commonStyle} style={{ color: 'rgb(245, 138, 66)' }}>
                 <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
             </svg>}
         </div>
