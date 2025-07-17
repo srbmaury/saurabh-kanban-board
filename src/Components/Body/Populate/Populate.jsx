@@ -10,17 +10,125 @@ const Populate = () => {
     const [data, setData] = useState(null);
     const [sortedTickets, setSortedTickets] = useState([]);
 
-    // To fetch data from API
+    // Sample data to replace expired API
+    const sampleData = {
+        users: [
+            { id: 'usr-1', name: 'Anoop Sharma', available: true },
+            { id: 'usr-2', name: 'Yogesh', available: true },
+            { id: 'usr-3', name: 'Shankar Kumar', available: false },
+            { id: 'usr-4', name: 'Ramesh', available: true },
+            { id: 'usr-5', name: 'Suresh', available: false }
+        ],
+        tickets: [
+            {
+                id: 'CAM-1',
+                title: 'Update User Profile',
+                tag: ['Feature Request'],
+                priority: 4,
+                status: 'In progress',
+                userId: 'usr-1'
+            },
+            {
+                id: 'CAM-2',
+                title: 'Fix Login Bug',
+                tag: ['Bug'],
+                priority: 3,
+                status: 'Todo',
+                userId: 'usr-2'
+            },
+            {
+                id: 'CAM-3',
+                title: 'Add Dark Mode',
+                tag: ['Feature Request', 'UI/UX'],
+                priority: 2,
+                status: 'Done',
+                userId: 'usr-3'
+            },
+            {
+                id: 'CAM-4',
+                title: 'Database Optimization',
+                tag: ['Technical Debt'],
+                priority: 1,
+                status: 'Backlog',
+                userId: 'usr-4'
+            },
+            {
+                id: 'CAM-5',
+                title: 'Mobile Responsive Design',
+                tag: ['Feature Request', 'UI/UX'],
+                priority: 4,
+                status: 'In progress',
+                userId: 'usr-5'
+            },
+            {
+                id: 'CAM-6',
+                title: 'API Rate Limiting',
+                tag: ['Security'],
+                priority: 3,
+                status: 'Todo',
+                userId: 'usr-1'
+            },
+            {
+                id: 'CAM-7',
+                title: 'Email Notifications',
+                tag: ['Feature Request'],
+                priority: 2,
+                status: 'Done',
+                userId: 'usr-2'
+            },
+            {
+                id: 'CAM-8',
+                title: 'Performance Testing',
+                tag: ['Testing'],
+                priority: 1,
+                status: 'Backlog',
+                userId: 'usr-3'
+            },
+            {
+                id: 'CAM-9',
+                title: 'User Authentication',
+                tag: ['Security', 'Feature Request'],
+                priority: 4,
+                status: 'In progress',
+                userId: 'usr-4'
+            },
+            {
+                id: 'CAM-10',
+                title: 'Data Export Feature',
+                tag: ['Feature Request'],
+                priority: 3,
+                status: 'Todo',
+                userId: 'usr-5'
+            },
+            {
+                id: 'CAM-11',
+                title: 'Fix Search Functionality',
+                tag: ['Bug'],
+                priority: 2,
+                status: 'Done',
+                userId: 'usr-1'
+            },
+            {
+                id: 'CAM-12',
+                title: 'Add Unit Tests',
+                tag: ['Testing'],
+                priority: 1,
+                status: 'Cancelled',
+                userId: 'usr-2'
+            }
+        ]
+    };
+
+    // To fetch data from API (replaced with sample data)
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const storedgrouping = localStorage.getItem('grouping') || 'user';
                 setGrouping(storedgrouping);
-                const response = await fetch('https://tfyincvdrafxe7ut2ziwuhe5cm0xvsdu.lambda-url.ap-south-1.on.aws/ticketAndUsers');
-                const result = await response.json();
-                setData(result);
+                // Use sample data instead of API call
+                setData(sampleData);
             } catch (error) {
-                console.error('Error fetching data:', error);
+                console.error('Error setting data:', error);
             }
         };
 
