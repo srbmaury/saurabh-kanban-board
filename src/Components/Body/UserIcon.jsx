@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+
 const UserIcon = ({ name, available }) => {
 
     const [userInitials, setUserInitials] = useState("");
