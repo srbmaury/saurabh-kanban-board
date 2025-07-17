@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAppContext } from '../../../AppContext';
 import AccToStatus from './AccToStatus';
 import AccToUser from './AccToUser';

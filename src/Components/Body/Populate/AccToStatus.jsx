@@ -1,7 +1,6 @@
-import React from 'react';
 import Status from '../Status';
 import RightIcons from '../RightIcons';
-import Ticket from '../ticket';
+import Ticket from '../Ticket';
 
 const AccToStatus = ({ sortedTickets, data, grouping, darkMode }) => {
     return (

@@ -1,5 +1,3 @@
-import React from 'react'
-
 const RightIcons = () => {
     return (
         // + and ... icons for each title

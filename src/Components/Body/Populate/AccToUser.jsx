@@ -1,7 +1,6 @@
-import React from 'react';
 import UserIcon from '../UserIcon';
 import RightIcons from '../RightIcons';
-import Ticket from '../ticket';
+import Ticket from '../Ticket';
 
 const AccToUser = ({ sortedTickets, data, grouping, darkMode }) => {
     return (

@@ -1,5 +1,4 @@
-import React from 'react';
-import Ticket from '../ticket';
+import Ticket from '../Ticket';
 import Priority from '../Priority';
 import RightIcons from '../RightIcons';
 

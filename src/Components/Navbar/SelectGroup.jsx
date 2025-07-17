@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 const SelectGroup = ({ label, id, options, value, onChange, darkMode }) => {
     useEffect(() => {

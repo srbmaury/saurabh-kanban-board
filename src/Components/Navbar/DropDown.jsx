@@ -1,11 +1,8 @@
-import React, { useEffect, useRef } from 'react';
 import { useAppContext } from '../../AppContext';
 import SelectGroup from './SelectGroup';
 
 const DropDown = ({ isDropdownOpen }) => {
     const { grouping, setGrouping, ordering, setOrdering, darkMode } = useAppContext();
-    const dropdownRef = useRef();
-
     return (
         <>
             {/* Dropdown panel, show/hide based on dropdown state */}
